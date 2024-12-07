@@ -2,6 +2,7 @@ import sys
 from logical_challenges import *
 from content import *
 from utility_functions import *
+from math_challenges import *
 
 
 class Screen:

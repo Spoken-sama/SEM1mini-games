@@ -15,16 +15,7 @@ def factorial(number_factorial : list[int])-> list[int]:
             factorial_cpt=factorial_cpt*(i+1)
         return(factorial_cpt)
 
-def math_challenge_factorial():
-    n=randint (1,10)
-    print('Math Challenge: Calculate the factorial of ',n)
-    factorial_answer = int (input ('Your answer:'))
-    if factorial_answer == factorial(n):
-        print('Correct! You win a key.')
-        return(True)
-    else:
-        print('Wrong! Try again.')
-        return(False)
+
 
 
 def solve_linear_equation():
