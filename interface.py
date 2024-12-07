@@ -107,5 +107,18 @@ def Menu(cond):
 
 def Logical_Challenges(cond):
     if cond:
-        game_1(True)
+        game_1()
+
+def math_challenge(cond):
+    if cond:
+        math_challenge_factorial()
+
+
+def final_challenge(cond):
+    if cond:
+        pass
+
+def chance_challenges(cond):
+    if cond:
+        pass
 

@@ -5,7 +5,7 @@ from utility_functions import *
 
 
 
-def game_1 (cond):
+def game_1 ():
     print("Each player must place 2 boats on a 3x3 grid.")
     print("Boats are represented by 'B' and missed shots by '.'. Sunk boats are marked by 'x'.")
 
