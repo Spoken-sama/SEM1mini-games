@@ -2,6 +2,7 @@ from random import*
 import pygame
 from pygame import mixer
 
+
 mixer.init()
 #pygame.mixer.music.load(r'...\1semester project\boyard_musique.mp3')
 #pygame.mixer.music.play(loops=500, start=0.0)
