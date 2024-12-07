@@ -81,11 +81,11 @@ def Menu(cond):
             screen.clear()
             zoomimg_backgrounds(background, 1, 0, 0)
             zoomimg_backgrounds(title, 0.5, 505, 50)
-            Math_chall = Button(screen.get_display(), 480, 380, 300, 70, "Math Challenges", math_challenge, 0,0, 0, 255)
-            Chance_chall = Button(screen.get_display(), 480, 540, 300, 70, "Chance Challenges", chance_challenges, 0,0, 0, 255)
-            Logical_chall = Button(screen.get_display(), 480, 300, 300, 70, "Logical Challenges", Logical_Challenges, 0, 0, 0, 255)
-            Fouras_chall = Button(screen.get_display(), 480, 620, 300, 70, "Pere Fouras Challenges", pere_fouras_challenges, 0,0, 0, 255)
-            Final_chall = Button(screen.get_display(), 480, 460, 300, 70, "Final Challenges", final_challenge, 0,0, 0, 255)
+            Math_chall = Button(screen.get_display(), 480, 300, 300, 70, "Math Challenges", math_challenge, 0,0, 0, 255)
+            Chance_chall = Button(screen.get_display(), 480, 380, 300, 70, "Chance Challenges", chance_challenges, 0,0, 0, 255)
+            Logical_chall = Button(screen.get_display(), 480, 460, 300, 70, "Logical Challenges", Logical_Challenges, 0, 0, 0, 255)
+            Fouras_chall = Button(screen.get_display(), 480, 540, 300, 70, "Pere Fouras Challenges", pere_fouras_challenges, 0,0, 0, 255)
+            Final_chall = Button(screen.get_display(), 480, 620, 300, 70, "Final Challenges", final_challenge, 0,0, 0, 255)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -93,16 +93,16 @@ def Menu(cond):
                     sys.exit()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     mouse_x, mouse_y = pygame.mouse.get_pos()
-                    if Logical_chall.is_clicked(mouse_x, mouse_y):
-                        Logical_Challenges(True)
-                    elif Math_chall.is_clicked(mouse_x, mouse_y):
+                    if Math_chall.is_clicked(mouse_x, mouse_y):
                         math_challenge(True)
-                    elif Final_chall.is_clicked(mouse_x, mouse_y):
-                        final_challenge(True)
                     elif Chance_chall.is_clicked(mouse_x, mouse_y):
                         chance_challenges(True)
+                    elif Logical_chall.is_clicked(mouse_x, mouse_y):
+                        Logical_Challenges(True)
                     elif Fouras_chall.is_clicked(mouse_x, mouse_y):
                         pere_fouras_challenges(True)
+                    elif Final_chall.is_clicked(mouse_x, mouse_y):
+                        final_challenge(True)
 
 
             pygame.display.update()
