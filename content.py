@@ -1,3 +1,12 @@
 import pygame
-background = pygame.image.load('/Users/benjamin/PycharmProjects/1semester project/game_menu.jpeg')
-title = pygame.image.load('/Users/benjamin/PycharmProjects/1semester project/title-menu.png')
+import os
+
+base_path = os.path.dirname('content/game_menu.jpeg')
+base_path2 = os.path.dirname('content/title-menu.png')
+
+# Construct relative paths to the assets
+background_path = os.path.join(base_path,'game_menu.jpeg')
+title_path = os.path.join(base_path2, 'title-menu.png')
+
+background = pygame.image.load(background_path)
+title = pygame.image.load(title_path)

@@ -1,6 +1,8 @@
 import sys
+from logical_challenges import *
 from content import *
-from function import *
+from utility_functions import *
+
 
 class Screen:
     def __init__(self):
@@ -80,7 +82,7 @@ def Menu(cond):
             screen.clear()
             zoomimg_backgrounds(background, 1, 0, 0)
             zoomimg_backgrounds(title, 0.5, 505, 50)
-            cemantix = Button(screen.get_display(), 525, 300, 210, 70, "Battleship", battleship_game, 0, 0, 0, 255)
+            cemantix = Button(screen.get_display(), 525, 300, 210, 70, "Logical Challenges", Logical_Challenges, 0, 0, 0, 255)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -89,7 +91,7 @@ def Menu(cond):
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     mouse_x, mouse_y = pygame.mouse.get_pos()
                     if cemantix.is_clicked(mouse_x, mouse_y):
-                        battleship_game(True)
+                        Logical_Challenges(True)
 
             pygame.display.update()
             screen.update()
@@ -102,41 +104,7 @@ def Menu(cond):
 
 
 
-def battleship_game(cond):
+def Logical_Challenges(cond):
     if cond:
-        print("Each player must place 2 boats on a 3x3 grid.")
-        print("Boats are represented by 'B' and missed shots by '.'. Sunk boats are marked by 'x'.")
-
-
-        print("Place your boats:")
-        player_grid = initialize()
-        display_grid(player_grid, "Here is your game grid with your boats:")
-
-
-        game_master_grid = empty_grid()
-        placed_boats = 0
-        while placed_boats < 2:
-            row, col = randint(0, 2), randint(0, 2)
-            if game_master_grid[row][col] == " ":
-                game_master_grid[row][col] = "B"
-                placed_boats += 1
-
-
-        player_shots_grid = empty_grid()
-        game_master_shots_grid = empty_grid()
-
-
-        current_player = 0
-        while True:
-            if current_player == 0:
-                turn(current_player, player_shots_grid, game_master_grid)
-                if sum(row.count("x") for row in player_shots_grid) == 2:
-                    print("The player won!")
-                    break
-            else:
-                turn(current_player, game_master_shots_grid, player_grid)
-                if sum(row.count("x") for row in game_master_shots_grid) == 2:
-                    print("The game master won!")
-                    break
-            current_player = next_player(current_player)
+        game_1(True)
 
