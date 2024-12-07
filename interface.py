@@ -122,3 +122,6 @@ def chance_challenges(cond):
     if cond:
         pass
 
+def pere_fouras_challengges(cond):
+    if cond:
+        pass
