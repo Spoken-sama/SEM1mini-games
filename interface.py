@@ -1,7 +1,5 @@
 import sys
 from logical_challenges import *
-from content import *
-from utility_functions import *
 from math_challenges import *
 
 
@@ -83,11 +81,11 @@ def Menu(cond):
             screen.clear()
             zoomimg_backgrounds(background, 1, 0, 0)
             zoomimg_backgrounds(title, 0.5, 505, 50)
-            Logical_chall = Button(screen.get_display(), 480, 300, 300, 70, "Logical Challenges", Logical_Challenges, 0, 0, 0, 255)
             Math_chall = Button(screen.get_display(), 480, 380, 300, 70, "Math Challenges", math_challenge, 0,0, 0, 255)
-            Final_chall = Button(screen.get_display(), 480, 460, 300, 70, "Final Challenges", final_challenge, 0,0, 0, 255)
             Chance_chall = Button(screen.get_display(), 480, 540, 300, 70, "Chance Challenges", chance_challenges, 0,0, 0, 255)
+            Logical_chall = Button(screen.get_display(), 480, 300, 300, 70, "Logical Challenges", Logical_Challenges, 0, 0, 0, 255)
             Fouras_chall = Button(screen.get_display(), 480, 620, 300, 70, "Pere Fouras Challenges", pere_fouras_challenges, 0,0, 0, 255)
+            Final_chall = Button(screen.get_display(), 480, 460, 300, 70, "Final Challenges", final_challenge, 0,0, 0, 255)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
