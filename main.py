@@ -1,4 +1,5 @@
 import pygame
+import classes
 from interface import *
 pygame.init()
 running = True
@@ -9,8 +10,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-
-
 
 
 

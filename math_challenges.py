@@ -1,6 +1,4 @@
 import time
-
-import interface
 from content import *
 from utility_functions import *
 from classes import *
@@ -19,13 +17,13 @@ def math_challenge_factorial(cond):
         font = pygame.font.Font(None, 32)
         n = randint(1, 10)
         correct_answer = factorial(n)
-        calcul_message = 'Math Challenge: Calculate the factorial of  ' + str(n)
+        calcul_message = 'Math Challenge: Calculate the factorial of ' + str(n)
         result_message = ''
         win = False
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    break
+                    return
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if input_box.collidepoint(event.pos):
                         active = not active
@@ -38,8 +36,6 @@ def math_challenge_factorial(cond):
                             if text.isdigit() and int(text) == correct_answer:
                                 result_message = 'Correct! You win a key.'
                                 win = True
-
-
                             else:
                                 result_message = 'Wrong! Try again.'
                                 win = False
@@ -59,14 +55,14 @@ def math_challenge_factorial(cond):
 
             if result_message:
                 result_surface = font.render(result_message, True, pygame.Color('white'))
-                screen.get_display().blit(result_surface, (input_box.x , input_box.y + 40))
+                screen.get_display().blit(result_surface, (input_box.x, input_box.y + 40))
 
             if calcul_message:
                 calcul_surface = font.render(calcul_message, True, pygame.Color('white'))
-                screen.get_display().blit(calcul_surface, (input_box.x -130, input_box.y - 40))
+                screen.get_display().blit(calcul_surface, (input_box.x - 130, input_box.y - 40))
             pygame.display.update()
             screen.update()
 
-            if win== True :
+            if win:
                 time.sleep(1)
                 math_challenge_factorial(True)

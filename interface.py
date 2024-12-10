@@ -1,7 +1,7 @@
 from logical_challenges import *
 from math_challenges import *
 from classes import *
-
+pygame.font.init()
 
 def buttons(bt1: Button, arg1):
     while True:
@@ -22,6 +22,30 @@ def buttons(bt1: Button, arg1):
 def zoomimg_backgrounds(image, scale, x, y):
     zoomimg = pygame.transform.scale(image, (int(image.get_width() * scale), int(image.get_height() * scale)))
     screen.display.blit(zoomimg, (x, y))
+
+def Logical_Challenges(cond):
+    if cond:
+        Menu(False)
+        game_1()
+
+def math_challenge(cond):
+    if cond:
+        Menu(False)
+        math_challenge_factorial(True)
+
+
+def final_challenge(cond):
+    if cond:
+        pass
+
+def chance_challenges(cond):
+    if cond:
+        pass
+
+def pere_fouras_challenges(cond):
+    if cond:
+        pass
+
 
 def Menu(cond):
     if cond:
@@ -61,26 +85,3 @@ def Menu(cond):
         pygame.mixer.music.stop()
         screen.clear()
 
-
-def Logical_Challenges(cond):
-    if cond:
-        Menu(False)
-        game_1()
-
-def math_challenge(cond):
-    if cond:
-        Menu(False)
-        math_challenge_factorial(True)
-
-
-def final_challenge(cond):
-    if cond:
-        pass
-
-def chance_challenges(cond):
-    if cond:
-        pass
-
-def pere_fouras_challenges(cond):
-    if cond:
-        pass
