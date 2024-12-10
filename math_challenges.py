@@ -1,3 +1,5 @@
+import time
+
 import interface
 from content import *
 from utility_functions import *
@@ -19,11 +21,11 @@ def math_challenge_factorial(cond):
         correct_answer = factorial(n)
         calcul_message = 'Math Challenge: Calculate the factorial of  ' + str(n)
         result_message = ''
-
+        win = False
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
+                    break
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if input_box.collidepoint(event.pos):
                         active = not active
@@ -35,8 +37,12 @@ def math_challenge_factorial(cond):
                         if event.key == pygame.K_RETURN:
                             if text.isdigit() and int(text) == correct_answer:
                                 result_message = 'Correct! You win a key.'
+                                win = True
+
+
                             else:
                                 result_message = 'Wrong! Try again.'
+                                win = False
                             text = ''
                         elif event.key == pygame.K_BACKSPACE:
                             text = text[:-1]
@@ -60,3 +66,7 @@ def math_challenge_factorial(cond):
                 screen.get_display().blit(calcul_surface, (input_box.x -130, input_box.y - 40))
             pygame.display.update()
             screen.update()
+
+            if win== True :
+                time.sleep(1)
+                math_challenge_factorial(True)
