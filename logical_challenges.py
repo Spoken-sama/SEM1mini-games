@@ -1,5 +1,4 @@
 from utility_functions import *
-from game_state import game_state
 
 def battleship_game(selected_player):
     print("Each player must place 2 boats on a 3x3 grid.")

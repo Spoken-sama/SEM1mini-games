@@ -1,7 +1,7 @@
 import json
 import random
 
-def treasure_room():
+def treasure_room(selected_player):
     # Local variables
     tv_game = {}
     show = {}
@@ -10,6 +10,9 @@ def treasure_room():
     code_word = ""
     attempts = 3
     answer_correct = False
+    if selected_player['keys_won'] < 3:
+        print("You need at least 3 keys to unlock the treasure room.")
+        return False
 
     try:
         with open('json files/TRClues.json', 'r') as file:
