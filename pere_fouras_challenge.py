@@ -6,7 +6,7 @@ def load_riddles(file):
     with open(file, 'r', encoding='utf-8') as f:
         riddles = json.load(f)
     return riddles
-def pere_fouras_riddles():
+def pere_fouras_riddles(selected_player):
     riddles = load_riddles("json files/PFRiddles.json")
     selected_riddle = random.choice(riddles)
     question = selected_riddle['question']
@@ -21,6 +21,7 @@ def pere_fouras_riddles():
 
         if player_answer == answer:
             print("Correct! You have answered the riddle and earned a key!")
+            selected_player['keys_won'] += 1
             return True
         else:
             attempts -= 1

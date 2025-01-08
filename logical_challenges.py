@@ -1,7 +1,7 @@
 from utility_functions import *
 from game_state import game_state
 
-def battleship_game():
+def battleship_game(selected_player):
     print("Each player must place 2 boats on a 3x3 grid.")
     print("Boats are represented by 'B' and missed shots by '.'. Sunk boats are marked by 'x'.")
 
@@ -26,7 +26,7 @@ def battleship_game():
             turn(current_player, player_shots_grid, game_master_grid)
             if has_won(player_shots_grid):
                 print("The player won!")
-                game_state.add_key()
+                selected_player['keys_won'] += 1
                 break
         else:
             turn(current_player, game_master_shots_grid, player_grid)

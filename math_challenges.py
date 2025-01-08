@@ -2,11 +2,10 @@ import random
 from random import randint
 from content import *
 from utility_functions import *
-from game_state import game_state
 
 
 
-def math_challenge_factorial():
+def math_challenge_factorial(selected_player):
     n = randint(1, 10)
     correct_answer = factorial(n)
     print(f'Math Challenge: Calculate the factorial of {n}')
@@ -14,40 +13,42 @@ def math_challenge_factorial():
         player_answer = input('Your answer: ').strip()
         if player_answer.isdigit() and int(player_answer) == correct_answer:
             print('Correct! You win a key.')
-            game_state.add_key()
+            selected_player['keys_won'] += 1  # Increment keys for the selected player
             break
         else:
             print('Wrong! Try again.')
 
 
 
-def math_challenge_prime():
+
+def math_challenge_prime(selected_player):
     n = randint(10, 20)
     correct_answer = nearest_prime(n)
-    print("Math Challenge: Find the nearest prime to ",n,".")
+    print("Math Challenge: Find the nearest prime to ", n, ".")
     player_answer = int(input('Your answer: ').strip())
     if player_answer == correct_answer:
         print('Correct! You win a key.')
-        game_state.add_key()
+        selected_player['keys_won'] += 1  # Increment keys for the selected player
         return True
     else:
         print('Wrong! Try again.')
         return False
 
-def math_challenge_equation():
+def math_challenge_equation(selected_player):
     a, b, correct_solution = solve_linear_equation()
-    print("Math Challenge: Solve the equation ",a,"x + ",b," = 0.")
+    print("Math Challenge: Solve the equation ", a, "x + ", b, " = 0.")
     player_answer = float(input('What is the value of x: ').strip())
     if player_answer == correct_solution:
         print('Correct! You win a key.')
-        game_state.add_key()
+        selected_player['keys_won'] += 1  # Increment keys for the selected player
         return True
     else:
         print('Wrong! Try again.')
         return False
 
-def math_challenge():
-    challenges = [math_challenge_prime, math_challenge_equation, math_challenge_factorial]
+
+def math_challenge(selected_player):
+    challenges = [math_challenge_prime(selected_player),math_challenge_equation(selected_player),math_challenge_factorial(selected_player)]
     challenge_index = randint(0, 2)
     challenge = challenges[challenge_index]
     print("\nA random challenge has been selected!")

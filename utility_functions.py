@@ -107,3 +107,72 @@ def solve_linear_equation():
     b = randint(1, 10)
     x = -b / a
     return a, b, x
+
+def compose_equipe():
+    MAX_PLAYERS = 3
+    team = []
+
+    while True:
+        try:
+            num_players = int(input("How many players do you wish to include in the team (up to 3)? "))
+            if num_players > MAX_PLAYERS:
+                print(f"Error: You cannot have more than {MAX_PLAYERS} players.")
+                continue
+            elif num_players <= 0:
+                print("Error: The number of players must be at least 1.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    for i in range(num_players):
+        print(f"\nEntering details for player {i + 1}:")
+        name = input("Enter player's name: ").strip()
+        profession = input("Enter player's profession: ").strip()
+
+        while True:
+            is_leader_input = input("Is this player the team leader? (yes/no): ").strip().lower()
+            if is_leader_input in ["yes", "no"]:
+                is_leader = is_leader_input == "yes"
+                break
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+
+        player = {
+            "name": name,
+            "profession": profession,
+            "is_leader": is_leader,
+            "keys_won": 0
+        }
+
+        team.append(player)
+
+    # Check if no leader was designated
+    if not any(player["is_leader"] for player in team):
+        print("\nNo leader was designated. The first player will be assigned as the leader.")
+        team[0]["is_leader"] = True
+
+    print("\nTeam composition complete!")
+    return team
+
+def choose_player(team):
+    if not team:
+        print("The team is empty. No players to choose from.")
+        return None
+
+    print("\nChoose a player to take on the challenge:")
+    for i, player in enumerate(team, start=1):
+        role = "Leader" if player["is_leader"] else "Member"
+        print(f"{i}. {player['name']} ({player['profession']}) - {role}")
+
+    while True:
+        try:
+            choice = int(input("Enter the player's number: "))
+            if 1 <= choice <= len(team):
+                selected_player = team[choice - 1]
+                print(f"\nYou selected: {selected_player['name']} ({selected_player['profession']}) - {'Leader' if selected_player['is_leader'] else 'Member'}")
+                return selected_player
+            else:
+                print("Invalid number. Please choose a valid player number.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
