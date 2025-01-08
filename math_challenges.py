@@ -1,11 +1,11 @@
-import time
-from random import *
+import random
+from random import randint
 from content import *
 from utility_functions import *
 
 
 def math_challenge_factorial():
-    n = random.randint(1, 10)
+    n = randint(1, 10)
     correct_answer = factorial(n)
     print(f'Math Challenge: Calculate the factorial of {n}')
     while True:
@@ -18,12 +18,12 @@ def math_challenge_factorial():
 
 
 def solve_linear_equation():
-    a = random.randint(1, 10)
-    b = random.randint(1, 10)
+    a = randint(1, 10)
+    b = randint(1, 10)
     x = -b / a
     return a, b, x
 def math_challenge_prime():
-    n = random.randint(10, 20)
+    n = randint(10, 20)
     correct_answer = nearest_prime(n)
     print("Math Challenge: Find the nearest prime to ",n,".")
     player_answer = int(input('Your answer: ').strip())
@@ -47,6 +47,7 @@ def math_challenge_equation():
 
 def math_challenge():
     challenges = [math_challenge_prime, math_challenge_equation, math_challenge_factorial]
-    challenge = random.choice(challenges)
+    challenge_index = randint(0, 2)
+    challenge = challenges[challenge_index]
     print("\nA random challenge has been selected!")
     return challenge()
