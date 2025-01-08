@@ -1,5 +1,6 @@
 from logical_challenges import *
 from math_challenges import *
+from pere_fouras_challenge import *
 from classes import *
 pygame.font.init()
 
