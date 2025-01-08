@@ -12,7 +12,8 @@ def main_menu():
         print("2. Chance Challenges")
         print("3. Logical Challenge")
         print("4. Pere Fouras Challenge")
-        print("5. Leave Menu")
+        print("5. Final Challenge")
+        print("6. Leave Menu")
         print("==========================")
 
         choice = input("Enter Your choice : ").strip()
@@ -30,6 +31,9 @@ def main_menu():
             print("\n>>> Starting Pere Fouras Challenge...")
             pere_fouras_riddles()
         elif choice == "5":
+            print("\n>>> Starting Final Challenge...")
+            treasure_room()
+        elif choice == "6":
             print("\nThank you for playing! See you soon!")
             break
         else:
