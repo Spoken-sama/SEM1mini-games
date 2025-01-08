@@ -1,4 +1,5 @@
 import time
+import random
 from content import *
 from utility_functions import *
 from classes import *
@@ -66,3 +67,48 @@ def math_challenge_factorial(cond):
             if win:
                 time.sleep(1)
                 math_challenge_factorial(True)
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+def nearest_prime(n):
+    while not is_prime(n):
+        n += 1
+    return n
+def solve_linear_equation():
+    a = random.randint(1, 10)
+    b = random.randint(1, 10)
+    x = -b / a
+    return a, b, x
+def math_challenge_prime():
+    n = random.randint(10, 20)
+    correct_answer = nearest_prime(n)
+    print("Math Challenge: Find the nearest prime to ",n,".")
+    player_answer = int(input('Your answer: ').strip())
+    if player_answer == correct_answer:
+        print('Correct! You win a key.')
+        return True
+    else:
+        print('Wrong! Try again.')
+        return False
+
+def math_challenge_equation():
+    a, b, correct_solution = solve_linear_equation()
+    print("Math Challenge: Solve the equation ",a,"x + ",b," = 0.")
+    player_answer = float(input('What is the value of x: ').strip())
+    if player_answer == correct_solution:
+        print('Correct! You win a key.')
+        return True
+    else:
+        print('Wrong! Try again.')
+        return False
+
+def chance_challenge():
+    challenges = [math_challenge_prime, math_challenge_equation]
+    challenge = random.choice(challenges)
+    print("\nA random challenge has been selected!")
+    return challenge()
