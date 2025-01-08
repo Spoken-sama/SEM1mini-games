@@ -7,7 +7,7 @@ def load_riddles(file):
         riddles = json.load(f)
     return riddles
 def pere_fouras_riddles():
-    riddles = load_riddles("PFRiddles.json")
+    riddles = load_riddles("json files/PFRiddles.json")
     selected_riddle = random.choice(riddles)
     question = selected_riddle['question']
     answer = selected_riddle['answer'].lower()
