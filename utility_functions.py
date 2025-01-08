@@ -1,12 +1,3 @@
-from random import*
-import pygame
-from pygame import mixer
-
-
-mixer.init()
-#pygame.mixer.music.load(r'...\1semester project\boyard_musique.mp3')
-#pygame.mixer.music.play(loops=500, start=0.0)
-
 def factorial(number_factorial : list[int])-> list[int]:
     factorial_cpt=1
     if number_factorial==0:
@@ -93,3 +84,19 @@ def turn(player, player_shots_grid, opponent_grid):
     else:
         print("Splash...")
         player_shots_grid[row][col] = "."
+
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+def nearest_prime(n):
+    while not is_prime(n):
+        n += 1
+    return n
+
+def has_won(player_shots_grid):
+    return sum(row.count("x") for row in player_shots_grid) == 2

@@ -1,9 +1,6 @@
 import pygame
-import classes
 from interface import *
-pygame.init()
 running = True
-Menu(True)
 
 
 def main_menu():
@@ -40,7 +37,10 @@ def main_menu():
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-            pygame.quit()
+            print("Goodbye!")
+            print(1 + 1)
+            print("This code runs after quitting Pygame.")
+            n = int(input("Enter a number: "))
+
             if __name__ == "__main__":
                 main_menu()
