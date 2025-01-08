@@ -1,4 +1,5 @@
 import random
+from random import randint
 
 
 def shell_game():
@@ -57,6 +58,7 @@ def roll_dice_game():
 
 def chance_challenge():
     challenges = [shell_game, roll_dice_game]
-    challenge = random.choice(challenges)
+    challenge_index = randint(0, 1)
+    challenge = challenges[challenge_index]
     print("\nA random challenge has been selected!")
     return challenge()
