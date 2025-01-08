@@ -2,6 +2,8 @@ import random
 from random import randint
 from content import *
 from utility_functions import *
+from game_state import game_state
+
 
 
 def math_challenge_factorial():
@@ -12,16 +14,13 @@ def math_challenge_factorial():
         player_answer = input('Your answer: ').strip()
         if player_answer.isdigit() and int(player_answer) == correct_answer:
             print('Correct! You win a key.')
+            game_state.add_key()
             break
         else:
             print('Wrong! Try again.')
 
 
-def solve_linear_equation():
-    a = randint(1, 10)
-    b = randint(1, 10)
-    x = -b / a
-    return a, b, x
+
 def math_challenge_prime():
     n = randint(10, 20)
     correct_answer = nearest_prime(n)
@@ -29,6 +28,7 @@ def math_challenge_prime():
     player_answer = int(input('Your answer: ').strip())
     if player_answer == correct_answer:
         print('Correct! You win a key.')
+        game_state.add_key()
         return True
     else:
         print('Wrong! Try again.')
@@ -40,6 +40,7 @@ def math_challenge_equation():
     player_answer = float(input('What is the value of x: ').strip())
     if player_answer == correct_solution:
         print('Correct! You win a key.')
+        game_state.add_key()
         return True
     else:
         print('Wrong! Try again.')

@@ -1,5 +1,6 @@
 import random
 from random import randint
+from game_state import game_state
 
 
 def shell_game():
@@ -19,6 +20,7 @@ def shell_game():
         if player_choice in shells:
             if player_choice == key_shell:
                 print(f"Congratulations! You found the key under shell {key_shell}.")
+                game_state.add_key()
                 return True
             else:
                 print(f"Sorry, the key was not under shell {player_choice}.")
@@ -45,6 +47,7 @@ def roll_dice_game():
         print(f"You rolled: {player_dice[0]} and {player_dice[1]}.")
         if 6 in player_dice:
             print("Congratulations! You rolled a 6 and won the game!")
+            game_state.add_key()
             return True
         print("Now it's the game master's turn...")
         master_dice = (random.randint(1, 6), random.randint(1, 6))

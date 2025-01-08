@@ -4,6 +4,7 @@ from chance_challenges import*
 from logical_challenges import*
 from final_challenge import*
 from math_challenges import*
+from game_state import*
 def main_menu():
     while True:
         print("\n===== Main Menu =====")

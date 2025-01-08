@@ -101,3 +101,9 @@ def nearest_prime(n):
 
 def has_won(player_shots_grid):
     return sum(row.count("x") for row in player_shots_grid) == 2
+
+def solve_linear_equation():
+    a = randint(1, 10)
+    b = randint(1, 10)
+    x = -b / a
+    return a, b, x
