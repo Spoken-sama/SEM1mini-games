@@ -1,3 +1,4 @@
+
 def factorial(number_factorial : list[int])-> list[int]:
     factorial_cpt=1
     if number_factorial==0:

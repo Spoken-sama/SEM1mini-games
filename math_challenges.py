@@ -1,5 +1,5 @@
 import time
-import random
+from random import *
 from content import *
 from utility_functions import *
 

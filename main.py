@@ -1,8 +1,9 @@
-import pygame
-from interface import *
 running = True
-
-
+from pere_fouras_challenge import*
+from chance_challenges import*
+from logical_challenges import*
+from final_challenge import*
+from math_challenges import*
 def main_menu():
     while True:
         print("\n===== Main Menu =====")
@@ -23,24 +24,14 @@ def main_menu():
             chance_challenge()
         elif choice == "3":
             print("\n>>> Starting Logical Challenge...")
-
+            battleship_game()
         elif choice == "4":
             print("\n>>> Starting Pere Fouras Challenge...")
-
+            pere_fouras_riddles()
         elif choice == "5":
             print("\nThank you for playing! See you soon!")
             break
         else:
             print("\nImpossible choice! Chose a number between 1 and 5!")
 
-
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            print("Goodbye!")
-            print(1 + 1)
-            print("This code runs after quitting Pygame.")
-            n = int(input("Enter a number: "))
-
-            if __name__ == "__main__":
-                main_menu()
+main_menu()

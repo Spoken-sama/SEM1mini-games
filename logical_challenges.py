@@ -32,5 +32,3 @@ def battleship_game():
                 print("The game master won!")
                 break
         current_player = next_player(current_player)
-
-battleship_game()
