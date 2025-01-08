@@ -54,3 +54,9 @@ def roll_dice_game():
         print("No 6 was rolled. Moving on to the next attempt.")
     print("\nIt's a draw! Neither you nor the game master rolled a 6.")
     return False
+
+def chance_challenge():
+    challenges = [shell_game, roll_dice_game]
+    challenge = random.choice(challenges)
+    print("\nA random challenge has been selected!")
+    return challenge()
