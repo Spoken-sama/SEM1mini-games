@@ -13,8 +13,7 @@ def math_challenge_factorial(selected_player):
         player_answer = input('Your answer: ').strip()
         if player_answer.isdigit() and int(player_answer) == correct_answer:
             print('Correct! You win a key.')
-            selected_player['keys_won'] += 1  # Increment keys for the selected player
-            break
+            selected_player['keys_won'] += 1
         else:
             print('Wrong! Try again.')
 
@@ -28,7 +27,7 @@ def math_challenge_prime(selected_player):
     player_answer = int(input('Your answer: ').strip())
     if player_answer == correct_answer:
         print('Correct! You win a key.')
-        selected_player['keys_won'] += 1  # Increment keys for the selected player
+        selected_player['keys_won'] += 1
         return True
     else:
         print('Wrong! Try again.')
@@ -40,14 +39,14 @@ def math_challenge_equation(selected_player):
     player_answer = float(input('What is the value of x: ').strip())
     if player_answer == correct_solution:
         print('Correct! You win a key.')
-        selected_player['keys_won'] += 1  # Increment keys for the selected player
+        selected_player['keys_won'] += 1
         return True
     else:
         print('Wrong! Try again.')
         return False
 
 
-def math_challenge(selected_player):
+def math_challenge(selected_player): # This function will randomly select a math challenge
     challenges = [math_challenge_prime(selected_player),math_challenge_equation(selected_player),math_challenge_factorial(selected_player)]
     challenge_index = randint(0, 2)
     challenge = challenges[challenge_index]

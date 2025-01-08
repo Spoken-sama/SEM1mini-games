@@ -5,7 +5,6 @@ from final_challenge import*
 from math_challenges import*
 from utility_functions import*
 
-
 def main_menu():
     while True:
         print("\n===== Main Menu =====")

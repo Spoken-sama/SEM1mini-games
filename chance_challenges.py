@@ -20,7 +20,7 @@ def shell_game(selected_player):
         if player_choice in shells:
             if player_choice == key_shell:
                 print(f"Congratulations! You found the key under shell {key_shell}.")
-                selected_player['keys_won'] += 1  # Increment keys for the selected player
+                selected_player['keys_won'] += 1
                 return True
             else:
                 print(f"Sorry, the key was not under shell {player_choice}.")
@@ -43,12 +43,12 @@ def roll_dice_game(selected_player):
     for attempt in range(1, max_attempts + 1):
         print(f"\nAttempt {attempt} of {max_attempts}:")
         print("Your turn! Press Enter to roll the dice.")
-        input()  # wait for the player to press "enter"
+        input()
         player_dice = (random.randint(1, 6), random.randint(1, 6))
         print(f"You rolled: {player_dice[0]} and {player_dice[1]}.")
         if 6 in player_dice:
             print("Congratulations! You rolled a 6 and won the game!")
-            selected_player['keys_won'] += 1  # Increment keys for the selected player
+            selected_player['keys_won'] += 1
             return True
         print("Now it's the game master's turn...")
         master_dice = (random.randint(1, 6), random.randint(1, 6))
@@ -61,7 +61,7 @@ def roll_dice_game(selected_player):
     return False
 
 
-def chance_challenge(selected_player):
+def chance_challenge(selected_player): #This function will randomly select a challenge
     challenges = [shell_game(selected_player),roll_dice_game(selected_player)]
     challenge_index = randint(0, 1)
     challenge = challenges[challenge_index]

@@ -1,5 +1,5 @@
 
-def factorial(number_factorial : list[int])-> list[int]:
+def factorial(number_factorial : list[int])-> list[int]: #This function will calculate the factorial of a number
     factorial_cpt=1
     if number_factorial==0:
         return(1)
@@ -11,7 +11,7 @@ def factorial(number_factorial : list[int])-> list[int]:
 
 
 
-def solve_linear_equation():
+def solve_linear_equation(): #This function will solve a linear equation
     a=randint (1,10)
     b=randint (1,10)
     return(a,b,-b/a)
@@ -19,22 +19,22 @@ def solve_linear_equation():
 
 
 from random import*
-def next_player(player):
+def next_player(player): #This function will switch the player
     return 1 - player
 
 
-def empty_grid():
+def empty_grid(): #This function will create an empty grid
     return [[" " for _ in range(3)] for _ in range(3)]
 
 
-def display_grid(grid, message):
+def display_grid(grid, message): #This function will display the grid
     print(message)
     for row in grid:
         print("| " + " | ".join(row) + " |")
     print("-------------")
 
 
-def ask_position():
+def ask_position(): #This function will ask the position
     while True:
         try:
             pos = input("Enter the position (row,column) between 1 and 3 (e.g., 1,2): ")
@@ -47,7 +47,7 @@ def ask_position():
             print("Invalid format. Please enter in the form row,column (e.g., 1,2).")
 
 
-def initialize():
+def initialize(): #This function will initialize the game
     grid = empty_grid()
     for boat_num in range(1, 3):
         print(f"Boat {boat_num}")
@@ -61,7 +61,7 @@ def initialize():
     return grid
 
 
-def turn(player, player_shots_grid, opponent_grid):
+def turn(player, player_shots_grid, opponent_grid): #This function will switch the turn
     if player == 0:
         display_grid(player_shots_grid, "History of your previous shots:")
         print("It's your turn to shoot!")
@@ -87,28 +87,28 @@ def turn(player, player_shots_grid, opponent_grid):
         player_shots_grid[row][col] = "."
 
 
-def is_prime(n):
+def is_prime(n): #This function will check if a number is prime
     if n <= 1:
         return False
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
-def nearest_prime(n):
+def nearest_prime(n): #This function will find the nearest prime number
     while not is_prime(n):
         n += 1
     return n
 
-def has_won(player_shots_grid):
+def has_won(player_shots_grid): #This function will check if the player has won
     return sum(row.count("x") for row in player_shots_grid) == 2
 
-def solve_linear_equation():
+def solve_linear_equation(): #This function will solve a linear equation
     a = randint(1, 10)
     b = randint(1, 10)
     x = -b / a
     return a, b, x
 
-def compose_equipe():
+def compose_equipe(): #This function will compose the team
     MAX_PLAYERS = 3
     team = []
 
@@ -147,7 +147,7 @@ def compose_equipe():
 
         team.append(player)
 
-    # Check if no leader was designated
+
     if not any(player["is_leader"] for player in team):
         print("\nNo leader was designated. The first player will be assigned as the leader.")
         team[0]["is_leader"] = True
@@ -155,7 +155,7 @@ def compose_equipe():
     print("\nTeam composition complete!")
     return team
 
-def choose_player(team):
+def choose_player(team): #This function will choose a player
     if not team:
         print("The team is empty. No players to choose from.")
         return None
