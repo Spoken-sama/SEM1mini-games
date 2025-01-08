@@ -1,5 +1,4 @@
 import pygame
-from interface import *
 running = True
 
 
@@ -33,14 +32,3 @@ def main_menu():
         else:
             print("\nImpossible choice! Chose a number between 1 and 5!")
 
-
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            print("Goodbye!")
-            print(1 + 1)
-            print("This code runs after quitting Pygame.")
-            n = int(input("Enter a number: "))
-
-            if __name__ == "__main__":
-                main_menu()
