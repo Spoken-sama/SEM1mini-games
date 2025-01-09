@@ -5,6 +5,7 @@ from final_challenge import*
 from math_challenges import*
 from utility_functions import*
 
+
 def main_menu():
     while True:
         print("\n===== Main Menu =====")
@@ -48,5 +49,6 @@ team = compose_equipe()
 for player in team:
     print(player)
 main_menu()
+
 
 
