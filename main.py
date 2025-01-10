@@ -4,7 +4,8 @@ from logical_challenges import*
 from final_challenge import*
 from math_challenges import*
 from utility_functions import*
-
+import pygame
+import os
 
 def main_menu():
     while True:
@@ -44,6 +45,16 @@ def main_menu():
             break
         else:
             print("\nImpossible choice! Chose a number between 1 and 5!")
+
+
+pygame.mixer.init()
+music_path = os.path.join(os.path.dirname(__file__), "content", "Boyard_music.mp3")
+
+
+pygame.mixer.music.load(music_path)
+pygame.mixer.music.play(-1)
+
+
 
 team = compose_equipe()
 for player in team:

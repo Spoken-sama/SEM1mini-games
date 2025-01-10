@@ -1,4 +1,4 @@
-import pygame
+"""import pygame
 import os
 
 base_path = os.path.dirname('content/game_menu.jpg')
@@ -9,4 +9,4 @@ background_path = os.path.join(base_path,'game_menu.jpg')
 title_path = os.path.join(base_path2, 'title-menu.png')
 
 background = pygame.image.load(background_path)
-title = pygame.image.load(title_path)
+title = pygame.image.load(title_path)"""
